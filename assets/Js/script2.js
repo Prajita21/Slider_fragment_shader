@@ -110,7 +110,7 @@ window.addEventListener("load", () => {
             vec4 displacementTexture = texture2D(displacement, vTextureCoord);
 
             // slides transitions based on displacement and transition timer
-            vec2 firstDisplacementCoords = vActiveTextureCoord + displacementTexture.r * ((cos((uTransitionTimer + 45.0) / (90.0 / 3.141592)) + 1.0) / 1.25);//utransitiontimer + 90.0 is original
+            vec2 firstDisplacementCoords = vActiveTextureCoord + displacementTexture.r * ((tan((uTransitionTimer + 90.0) / (180.0 / 3.141592)) + 1.0) / 1.25); // 90.0 / 3.141592 is original
             vec4 firstDistortedColor = texture2D(activeTex, vec2(vActiveTextureCoord.x, firstDisplacementCoords.y));
 
             // same as above but we substract the effect
